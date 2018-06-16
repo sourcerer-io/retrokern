@@ -1,2 +1,4 @@
 build/*.img
 build/*.iso
+build/iso/*.iso
+build/iso/*.img
