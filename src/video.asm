@@ -48,3 +48,24 @@ newline:
 
 	popa
 	ret
+
+disable_cursor:
+	pusha
+
+	; call BIOS to disable cursor, set cursor shape to 3F (none)
+	mov ah, 0x01
+	mov ch, 0x3F
+	int 0x10
+
+	popa
+	ret
+
+enable_cursor:
+	pusha
+
+	mov ah, 0x01
+	mov ch, 0x0
+	int 0x10
+
+	popa
+	ret

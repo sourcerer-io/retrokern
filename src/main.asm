@@ -6,10 +6,13 @@ main:
 
 	call set_text_mode
 	call display_welcome
+	call press_any_key
 
-	; insert main program here
+	; START MAIN PROGRAM
 
-	; wait for keypress
+	%include 'game.asm'
+
+	; END MAIN PROGRAM
 	call getchar
 
 .reboot:
@@ -35,7 +38,8 @@ display_welcome:
 
 	ret
 
-
 welcome_msg: db "Welcome to Retrokern Version ", 0
 copyright_msg: db "Copyright (C) 2018 Sourcerer, All Rights Reserved.", 0
 license_msg: db "Licensed under the GPLv3.", 0
+
+

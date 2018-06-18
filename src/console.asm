@@ -39,3 +39,11 @@ kbhit:
 
 	.key: dw 0
 
+; Display message and wait for key
+press_any_key:
+	mov si, press_msg
+	call puts
+	call getchar
+	ret
+
+press_msg: db "Press any key to continue...", 0
