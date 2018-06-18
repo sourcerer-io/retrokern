@@ -8,6 +8,13 @@ Retrokern is a 16-bit x86 assembly-based "operating system" that aims to accompl
 
 This system requires absolutely no operating system and will boot (in theory) in any 8086 or later CPU, including modern x86_64 systems.
 
+Reference "Game"
+----------------
+
+In game.asm a reference "game" is included. This isn't really a game, rather just code to display a character avatar and loop. Depending on key input, the character moves and player_x and player_y are updated.
+
+The point of this code is to demonstrate the functionality available to a game or program using Retrokern.
+
 Copyright
 ---------
 
