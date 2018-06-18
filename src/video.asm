@@ -35,3 +35,16 @@ putc:
 
 	popa
 	ret
+
+; Prints a new line
+newline:
+	pusha
+
+	mov al, 0x0a
+	call putc
+
+	mov al, 0x0d
+	call putc
+
+	popa
+	ret

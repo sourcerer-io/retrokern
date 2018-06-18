@@ -23,7 +23,7 @@ floppy:
 
 iso:
 	$(MAKE) floppy
-	genisoimage -quiet -V 'FLOPPYBIRD' -input-charset iso8859-1 -o $(ISO) -b $(FILENAME) $(ISO_DIR)
+	genisoimage -quiet -V 'RETROKERN' -input-charset iso8859-1 -o $(ISO) -b $(FILENAME) $(ISO_DIR)
 
 clean:
 	rm -f $(IMAGE)
