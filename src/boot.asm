@@ -108,13 +108,13 @@ _start:
 	call main				; call main
 	jmp $					; loop forever
 
-%include 'console.asm';
+%include 'console.asm'
 %include 'timer.asm'
 %include 'speaker.asm'
 %include 'video.asm'
 %include 'core.asm'
 
-; main.asm contains the main loop
+; main.asm contains the main loop and program
 %include 'main.asm'
 
 ; pad to IMAGE_SIZE
