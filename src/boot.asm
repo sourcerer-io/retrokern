@@ -26,7 +26,7 @@ start:
 
 	sti ; enable interrupts
 
-	mov ax, 07C0h			; point all segments to _start
+	mov ax, 0x07C0		; point all segments to _start
 	mov ds, ax
 	mov es, ax
 	mov fs, ax
@@ -34,29 +34,29 @@ start:
 
 	; dl contains the drive number
 
-	mov ax, 0				; reset disk function
-	int 13h					; call BIOS interrupt
+	mov ax, 0		; reset disk function
+	int 0x13		; call BIOS interrupt
 	jc disk_reset_error
 
-	push es				; save es
+	push es			; save es
 
-	mov ax, 07E0h		; destination location (address of _start)
-	mov es, ax			; destination location
-	mov bx, 0			; index 0
+	mov ax, 0x07E0		; destination location (address of _start)
+	mov es, ax		; destination location
+	mov bx, 0		; index 0
 
-	mov ah, 2			; read sectors function
+	mov ah, 2		; read sectors function
 	mov al, SECTORS		; number of sectors
-	mov ch, 0			; cylinder number
-	mov dh, 0			; head number
-	mov cl, 2			; starting sector number
-	int 13h				; call BIOS interrupt
+	mov ch, 0		; cylinder number
+	mov dh, 0		; head number
+	mov cl, 2		; starting sector number
+	int 0x13		; call BIOS interrupt
 
 	jc disk_read_error
 
-	pop es				; restore es
+	pop es			; restore es
 
-	mov si, boot_msg	; boot message
-	call _puts			; print
+	mov si, boot_msg	; display boot message
+	call _puts
 
 	jmp 07E0h:0000h		; jump to _start (a.k.a stage 2)
 
