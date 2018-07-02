@@ -8,6 +8,8 @@ Retrokern is a 16-bit x86 assembly-based "operating system" that aims to accompl
 
 This system requires absolutely no operating system and will boot (in theory) in any 8086 or later CPU, including modern x86_64 systems.
 
+Learn more at [Retorkern - A Modern Thin Retro Assembly Platform](https://blog.sourcerer.io/retrokern-a-modern-thin-retro-assembly-platform-d51d8b89b6c1)
+
 Reference "Game"
 ----------------
 
