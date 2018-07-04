@@ -1,12 +1,12 @@
 ; getchar()
 ; Returns keyboard press in AX
 getchar:
-	pusha
+	push ax
 	mov ax, 0x0
 	int 0x16
 
 	mov [.chr], ax
-	popa
+	pop ax
 	mov ax, [.chr]
 	ret
 
@@ -14,7 +14,7 @@ getchar:
 
 ; kbhit - returns key hit in AX (without wait)
 kbhit:
-	pusha
+	push ax
 
 	mov al, 0			; check for any keys hit
 	mov ah, 1			; but do not block (async)
@@ -26,13 +26,13 @@ kbhit:
 
 	mov [.key], ax
 
-	popa
+	pop ax
 
 	mov ax, [.key]
 	ret
 
 .end:
-	popa
+	pop ax
 
 	mov ax, 0			; set AX to 0 if no keys hit
 	ret
