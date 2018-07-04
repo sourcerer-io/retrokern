@@ -16,7 +16,9 @@ ticks:
 
 ; sleep - sleep DX number of ms
 sleep:
-	pusha
+	push ax
+	push bx
+	push dx
 
 	mov ax, 0x0
 	mov bx, dx
@@ -31,5 +33,7 @@ sleep:
 	; loop until DX ms 
 	jne .wait
 
-	popa
+	pop dx
+	pop bx
+	pop ax
 	ret
