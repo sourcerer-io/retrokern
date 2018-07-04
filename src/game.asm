@@ -68,7 +68,8 @@
 
 ; Display the character's avatar
 display_player:
-	pusha
+	push ax
+	push dx
 
 	; set cursor
 	mov ah, 0x02
@@ -82,12 +83,14 @@ display_player:
 	mov al, [avatar]
 	call putc
 
-	popa
+	pop dx
+	pop ax
 	ret
 
 ; Clear the avatar display
 display_player_void:
-	pusha
+	push ax
+	push dx
 
 	; set cursor
 	mov ah, 0x02
@@ -101,7 +104,8 @@ display_player_void:
 	mov al, 0
 	call putc
 
-	popa
+	pop dx
+	pop ax
 	ret
 
 ; Player location
