@@ -1,15 +1,15 @@
 ; set_txt_mode - Set text mode (80x25x16 colors)
 set_text_mode:
-	pusha
+	push ax
 	mov ax, 0x3
 	int 0x10
-	popa
+	pop ax
 	ret
 
 ; puts - Print text line
 ; Put buffer address in SI
 puts:
-	pusha
+	push ax
 
 .loop:
 	lodsb
@@ -22,23 +22,23 @@ puts:
 	jmp .loop
 
 .end:
-	popa
+	pop ax
 	ret
 
 ; putc - print single character to screen
 ; Put char to display in AL
 putc:
-	pusha
+	push ax
 
 	mov ah, 0x0E
 	int 0x10
 
-	popa
+	pop ax
 	ret
 
 ; Prints a new line
 newline:
-	pusha
+	push ax
 
 	mov al, 0x0a
 	call putc
@@ -46,26 +46,30 @@ newline:
 	mov al, 0x0d
 	call putc
 
-	popa
+	pop ax
 	ret
 
 disable_cursor:
-	pusha
+	push ax
+	push cx
 
 	; call BIOS to disable cursor, set cursor shape to 3F (none)
 	mov ah, 0x01
 	mov ch, 0x3F
 	int 0x10
 
-	popa
+	pop cx
+	pop ax
 	ret
 
 enable_cursor:
-	pusha
+	push ax
+	push cx
 
 	mov ah, 0x01
 	mov ch, 0x0
 	int 0x10
 
-	popa
+	pop cx
+	pop ax
 	ret
